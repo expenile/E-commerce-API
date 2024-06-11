@@ -11,7 +11,7 @@ const userRoutes = require("./routes/userRoutes");
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.send("E-commerce API running...");
 });
 
 app.get("/ping", (req, res) => {
