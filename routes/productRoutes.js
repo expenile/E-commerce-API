@@ -9,10 +9,10 @@ const {
 
 const router = require("express").Router();
 
-router.post("/", ensureAuthenticated, createProduct); //secure
+router.post("/", ensureAuthenticated, createProduct); 
 router.get("/", getProducts);
 router.get("/:id", getProductById);
-router.put("/:id", ensureAuthenticated, updateProductById); //secure
-router.delete("/:id", ensureAuthenticated, deleteById); //secure
+router.put("/:id", ensureAuthenticated, updateProductById); 
+router.delete("/:id", ensureAuthenticated, deleteById); 
 
 module.exports = router;

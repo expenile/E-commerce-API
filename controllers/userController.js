@@ -4,12 +4,11 @@ const User = require("../models/User");
 const registerUser = async (req, res) => {
   try {
     const { email, password, name } = req.body;
-    //check if user is already exist or not
     const user = await User.findOne({ email });
     if (user) {
       return res.staus(409).json({ message: "User is already exist" });
     }
-    //user object
+
     const userInfo = new User(req.body);
     userInfo.password = await bcrypt.hash(password, 10);
     await userInfo.save();
@@ -25,11 +24,11 @@ const loginUser = async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) {
       return res
-        .status(403)
+        .status(401)
         .json({ message: "Auth failed username/password incorrect" });
     }
 
-    //check pass
+
     const isPassMatch = await bcrypt.compare(password, user.password);
     if (!isPassMatch) {
       return res

@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 const Schmea = mongoose.Schema;
 const validator = require("validator");
 
-// ```
-//  "name":"abc",
-//   "email": "abc@gmail.",
-//   "password":"123"
-// ```
-
 const UserModel = new Schmea({
   name: {
     type: String,
